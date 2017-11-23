@@ -31,7 +31,7 @@ def create_input(raw_documents, stop_word):
 def train_model(corpora_documents):
     model = Doc2Vec(size=40, min_count=2, iter=20)
     model.build_vocab(corpora_documents)
-    model.train(corpora_documents)
+    model.train(corpora_documents, total_examples=model.corpus_count, epochs=model.iter)
     return model
 
 if __name__ == '__main__':
